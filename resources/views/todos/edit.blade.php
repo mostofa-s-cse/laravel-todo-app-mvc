@@ -1,11 +1,11 @@
 @extends('layouts.app')
 @section('content')
-<h2 class="text-center">Create Todo</h2> 
+<h2 class="text-center">Update Todo</h2> 
 <div class="row justify-content-center">
      <div class="col-lg-6">
          <div class="card">
              <div class="card-header">
-                 <div class="card-title">Create</div>
+                 <div class="card-title">Update</div>
                  </div> <div class="card-body">
                     @if($errors->any())
                         <div class="alert alert-danger">
@@ -18,21 +18,21 @@
                             </ul>
                         </div>
                     @endif
-                     <form action="/store-todos" method="POST">
+                     <form action="/todos/{{$todo->id}}/update-todos" method="POST">
                          @csrf 
                          <div class="form-group"> 
                             <label>Name</label>
-                             <input type="text" class="form-control" name="name">
+                             <input type="text" class="form-control" name="name" value="{{$todo->name}}">
                              </div> 
                              <div class="form-group">
                                  <label>Description</label>
-                                  <textarea class="form-control" rows="6" name="description"></textarea>
+                                  <textarea class="form-control" rows="6" name="description" value="{{$todo->description}}"></textarea>
                                  </div>
                                  <div class="form-group"> 
                             <label>Complete</label>
-                             <input type="number" class="form-control" name="complete">
+                             <input type="number" class="form-control" name="complete" value="{{$todo->complete}}">
                              </div>  
-                                 <button type="submit" class="mt-2 btn btn-success btn-block">Create Todo</button>
+                                 <button type="submit" class="mt-2 btn btn-success btn-block">Update Todo</button>
                             </form>
                         </div>
                     </div>
