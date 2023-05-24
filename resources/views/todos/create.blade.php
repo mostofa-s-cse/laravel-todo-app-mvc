@@ -28,10 +28,7 @@
                                  <label>Description</label>
                                   <textarea class="form-control" rows="6" name="description"></textarea>
                                  </div>
-                                 <div class="form-group"> 
-                            <label>Complete</label>
-                             <input type="number" class="form-control" name="complete">
-                             </div>  
+                                 <div class="form-group">   
                                  <button type="submit" class="mt-2 btn btn-success btn-block">Create Todo</button>
                             </form>
                         </div>

@@ -25,14 +25,13 @@ class TodoController extends Controller
         $this->validate(request(),[
             'name'=>'required|min:6|max:20',
             'description'=>'required',
-            'complete'=>'required'
         ]);
 
         $data = request()->all();
         $todo = new Todo();
         $todo->name = $data['name'];
         $todo->description = $data['description'];
-        $todo->complete = $data['complete'];
+        $todo->complete = false;
         $todo->save();
         session()->flash('success','Todo Created Successfully');
         return redirect('/todos');
@@ -48,13 +47,12 @@ class TodoController extends Controller
         $this->validate(request(),[
             'name'=>'required|min:6|max:20',
             'description'=>'required',
-            'complete'=>'required'
         ]);
 
         $data = request()->all();
         $todo->name = $data['name'];
         $todo->description = $data['description'];
-        $todo->complete = $data['complete'];
+        $todo->complete = false;
         $todo->save();
         session()->flash('success','Todo Updated Successfully');
         return redirect('/todos');
@@ -64,6 +62,14 @@ class TodoController extends Controller
     {
         $todo->delete();
         session()->flash('success','Todo Delete Successfully');
+        return redirect('/todos');
+    }
+
+    public function complete(Todo $todo)
+    {
+        $todo->complete = true;
+        $todo->save();
+        session()->flash('success','Todo Completed Successfully');
         return redirect('/todos');
     }
 }

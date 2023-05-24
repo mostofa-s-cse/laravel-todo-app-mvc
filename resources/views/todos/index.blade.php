@@ -7,8 +7,12 @@
                 <div class="card-body"> 
                     <ul class="list-group"> @foreach($todos as $todo) 
                         <li class="list-group-item">{{ $todo->name }} 
-                            <a href="/todos/{{$todo->id}}" class="btn btn-info btn-sm"style="float:right">View</a> 
-                        </li> @endforeach 
+                          @if(!$todo->complete)
+                          <a href="/todos/{{$todo->id}}/complete" class="btn btn-warning btn-sm mx-1"style="float:right">Complete</a>
+                          @endif
+                            <a href="/todos/{{$todo->id}}" class="btn btn-info btn-sm ml-2"style="float:right">View</a> 
+                        </li>
+                         @endforeach 
                     </ul> 
                 </div> 
             </div> 

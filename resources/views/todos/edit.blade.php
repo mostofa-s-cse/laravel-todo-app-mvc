@@ -28,10 +28,6 @@
                                  <label>Description</label>
                                   <textarea class="form-control" rows="6" name="description" value="{{$todo->description}}"></textarea>
                                  </div>
-                                 <div class="form-group"> 
-                            <label>Complete</label>
-                             <input type="number" class="form-control" name="complete" value="{{$todo->complete}}">
-                             </div>  
                                  <button type="submit" class="mt-2 btn btn-success btn-block">Update Todo</button>
                             </form>
                         </div>
